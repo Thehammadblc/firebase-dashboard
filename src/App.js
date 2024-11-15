@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+// src/config/approuter/approuter.js
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/home"; // Make sure this path is correct
+import Dashboard from "./dashboard/Dashboard"; // Create this component for the dashboard
 
-function App() {
+export default function AppRouter() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} /> {/* Home Page */}
+        <Route path="/dashboard/*" element={<Dashboard />} /> {/* Dashboard */}
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
